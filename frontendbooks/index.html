@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Livres</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Livres</h1>
+        
+        <div class="form-container">
+            <h2>Ajouter un livre</h2>
+            <form id="bookForm">
+                <input type="text" id="title" placeholder="Titre" required>
+                <input type="text" id="author" placeholder="Auteur" required>
+                <input type="text" id="genre" placeholder="Genre" required>
+                <textarea id="description" placeholder="Description" required></textarea>
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+
+        <div class="books-container">
+            <h2>Liste des livres</h2>
+            <div class="filter-container">
+                <select id="genreFilter">
+                    <option value="">Tous les genres</option>
+                    <!-- Les genres seront ajoutés dynamiquement -->
+                </select>
+            </div>
+            <div class="books-stats">
+                <p>Nombre total de livres: <span id="bookCount">0</span></p>
+            </div>
+            <div class="books-grid" id="booksList">
+                <!-- Les livres seront injectés ici via JavaScript -->
+            </div>
+        </div>
+
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <h2>Modifier le livre</h2>
+                <form id="editForm">
+                    <input type="hidden" id="editId">
+                    <input type="text" id="editTitle" placeholder="Titre" required>
+                    <input type="text" id="editAuthor" placeholder="Auteur" required>
+                    <input type="text" id="editGenre" placeholder="Genre" required>
+                    <textarea id="editDescription" placeholder="Description" required></textarea>
+                    <div class="modal-actions">
+                        <button type="submit" class="save-btn">Enregistrer</button>
+                        <button type="button" class="cancel-btn" onclick="closeEditModal()">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
