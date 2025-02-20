@@ -10,15 +10,20 @@
     <div class="container">
         <h1>Gestion des Livres</h1>
         
-        <div class="form-container">
-            <h2>Ajouter un livre</h2>
-            <form id="bookForm">
-                <input type="text" id="title" placeholder="Titre" required>
-                <input type="text" id="author" placeholder="Auteur" required>
-                <input type="text" id="genre" placeholder="Genre" required>
-                <textarea id="description" placeholder="Description" required></textarea>
-                <button type="submit">Ajouter</button>
-            </form>
+        <div class="form-container collapsed">
+            <div class="form-header" onclick="toggleForm()">
+                <h2>Ajouter un livre</h2>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="form-content">
+                <form id="bookForm">
+                    <input type="text" id="title" placeholder="Titre" required>
+                    <input type="text" id="author" placeholder="Auteur" required>
+                    <input type="text" id="genre" placeholder="Genre" required>
+                    <textarea id="description" placeholder="Description" required></textarea>
+                    <button type="submit">Ajouter</button>
+                </form>
+            </div>
         </div>
 
         <div class="books-container">

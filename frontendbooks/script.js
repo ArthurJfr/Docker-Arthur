@@ -18,6 +18,12 @@ function updateGenreFilter() {
     const genres = [...new Set(allBooks.map(book => book.genre))];
     const genreFilter = document.getElementById('genreFilter');
     
+    // Vider les options existantes sauf la première (Tous les genres)
+    while (genreFilter.options.length > 1) {
+        genreFilter.remove(1);
+    }
+    
+    // Ajouter les nouveaux genres
     genres.forEach(genre => {
         const option = document.createElement('option');
         option.value = genre;
@@ -159,6 +165,23 @@ window.onclick = (event) => {
     }
 };
 
+// Écouteur d'événement pour le filtre
+document.getElementById('genreFilter').addEventListener('change', (e) => {
+    const selectedGenre = e.target.value;
+    const filteredBooks = selectedGenre 
+        ? allBooks.filter(book => book.genre === selectedGenre)
+        : allBooks;
+    displayBooks(filteredBooks);
+});
+
+// Fonction pour basculer le formulaire
+function toggleForm() {
+    const formContainer = document.querySelector('.form-container');
+    formContainer.classList.toggle('collapsed');
+}
+
+// Initialiser le formulaire comme fermé au chargement
 document.addEventListener('DOMContentLoaded', () => {
     loadBooks();
+    document.querySelector('.form-container').classList.add('collapsed');
 });

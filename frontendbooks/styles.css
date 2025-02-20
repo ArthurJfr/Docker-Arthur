@@ -40,6 +40,50 @@ h1 {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+.form-container {
+    background: white;
+    padding: 0;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.form-header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+    transition: background-color 0.3s ease;
+}
+
+.form-header:hover {
+    background: #f8fafc;
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.form-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 2rem;
+}
+
+.form-container.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.form-container:not(.collapsed) .form-content {
+    max-height: 500px;
+    padding: 2rem;
+}
+
 form {
     display: flex;
     flex-direction: column;
